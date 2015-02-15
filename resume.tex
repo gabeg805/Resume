@@ -1,8 +1,8 @@
-\documentclass[line]{resume}
+\documentclass[margin,line,a4paper]{resume}
 \usepackage[hidelinks]{hyperref}
 \usepackage{cmap}
 \usepackage{enumitem}
-\usepackage[top=0.75in, bottom=0.5in, left=0.75in]{geometry}
+%% \usepackage[top=0.75in, bottom=0.5in, left=0.75in]{geometry}
 \newcommand{\about}{\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}}
 
 %%______________________________________________________________________________
@@ -10,9 +10,9 @@
 \begin{document}
 \begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
 \textbf{\Large Gabriel Gonzalez}  \\
-621 West Cota Unit B    &  \textbf{\href{mailto:gabeg@bu.edu}{gabeg@bu.edu}} \\
-Santa Barbara, CA 93101 &  \textbf{Github:} \href{http://github.com/gabeg805}{github.com/gabeg805} \\
-(805) 895-4626          &  \textbf{LinkedIn:} \href{http://linkedin.com/in/gabeg805}{linkedin.com/in/gabeg805}
+621 West Cota Street Unit B    &  \textbf{\href{mailto:gabeg@bu.edu}{gabeg@bu.edu}} \\
+Santa Barbara, CA 93101    &  \textbf{Github:} \href{http://github.com/gabeg805}{github.com/gabeg805} \\
+(805) 895-4626             &  \textbf{LinkedIn:} \href{http://linkedin.com/in/gabeg805}{linkedin.com/in/gabeg805}
 \end{tabular*}
 \vspace{2mm}
 \begin{resume}
@@ -21,10 +21,9 @@ Santa Barbara, CA 93101 &  \textbf{Github:} \href{http://github.com/gabeg805}{gi
     %%__________________________________________________________________________
     %% Objective / Summary
     \section{\mysidestyle Objective}
-    I am seeking a software engineering position where I can apply my knowledge
-    of physics, mathematics, and programming to solve new problems, improve
-    existing code, and effectively contribute in a team environment. My goal is to expand
-    my understanding of system automation and back-end to front-end integration.
+    I am seeking a software engineering position where I can make a positive
+    contribution to the aerospace industry by applying my knowledge of programming and
+    astrophysics.
     
     
     %%__________________________________________________________________________
@@ -33,9 +32,11 @@ Santa Barbara, CA 93101 &  \textbf{Github:} \href{http://github.com/gabeg805}{gi
     \vspace{-0.01mm}
     \begin{description}
         \item[Languages:] C, C++, Java, Python, LaTeX, Bash, Assembly, IDL
-        \item[Software:] Arduino IDE, Git, DrJava
+        \item[Software:] GNU Debugger (GDB), Git, Arduino IDE
         \item[Operating systems:] Unix, Windows, OS X
-        \item[Courses:] Computer Systems, Data Structures and Algorithms, Electromagnetic Fields and Waves, Intermediate Mechanics, Methods of Theoretical Physics
+        \item[Courses:] Computer Systems, Data Structures and Algorithms,
+          Electromagnetic Fields and Waves, Methods of
+          Theoretical Physics, Quantum Physics, Statistical Thermodynamics
     \end{description}
     \vspace{-3mm}
     
@@ -47,7 +48,7 @@ Santa Barbara, CA 93101 &  \textbf{Github:} \href{http://github.com/gabeg805}{gi
     \textsl{BA : Astronomy and Physics}
     \vspace{1mm}
     \begin{itemize}[leftmargin=2em]
-        \item \textbf{GPA:} 3.17
+        \item \textbf{GPA:} 3.16
         \item \textbf{Expected graduation:} May 2015
     \end{itemize}
     
@@ -62,49 +63,66 @@ Santa Barbara, CA 93101 &  \textbf{Github:} \href{http://github.com/gabeg805}{gi
     %%__________________________________________________________________________
     %% Experience
     \section{\mysidestyle Experience}
+
+    %% EbbRT
+    \textbf{BU Computer Science Department}, Boston, MA \hfill \textbf{January 2015 -- present} \\
+    \textsl{Software Engineer \hfill \about 1 month}
+    \vspace{1mm}
+    \begin{itemize}[leftmargin=2em]
+        \item Testing and modifying the kernel of a multi-node library runtime,
+          called EbbRT, that will support exascale applications, such as those found
+          in High Performance Computing centers.
+    \end{itemize}
     
     %% ANDESITE
     \textbf{BU Satellite for Applications and Training}, Boston, MA \hfill \textbf{September 2014 -- present} \\
-    \textsl{Software Developer \hfill \about 3 month}
+    \textsl{Software Engineer \hfill \about 5 month}
     \vspace{1mm}
     \begin{itemize}[leftmargin=2em]
-        \item Developing software for eight Arduino Mega 2560 boards that control
-          when magnetometer, gyroscope, and GPS data is gathered and sent to the
-          central BeagleBone Black unit.
-        \item Developing software for the central BeagleBone Black unit to receive
-          the data gathered by the Arduino Mega 2560 boards and send it back down to
-          Earth using the GlobalStar Network.
+        \item Developing communications and sensory software for eight picosatellites
+          that each house a wireless sensor nodes (WSN). The WSN itself contains an
+          Atmel ATMega 2560 chip, an RFM22B radio to send and receive data, an
+          LSM9DS0 gyroscope/accelerometer/magnetometer sensor, and a global
+          positioning system.
+        \item Developing communications software for Boston University's ANDESITE
+          nanosatellite that will receive the data that was gathered by each
+          picosatellite, and send it down to the ground station using the GlobalStar Network.
+        \item Creating a simulation of in-flight processes that will occur when the
+          nanosatellite and picosatellites are in orbit.
+        \item Developing graphical program that will display the magnitude of the magnetic
+          field data detected by the LSM9DS0 module, as a function of time. 
+    \end{itemize}
+
+    %% VeSpR Post Flight Calibration
+    \textbf{BU Center for Space Physics}, Boston, MA \hfill \textbf{May 2014 -- present} \\
+    \textsl{Lab Assistant \hfill \about 9 months}
+    \vspace{1mm}
+    \begin{itemize}[leftmargin=2em]
+        \item Constructing an algorithm that expresses the wavelength of light as a
+          function of pixel location on the Venus Spectral Rocket (VeSpR) imager CCD.
+        \item Developing software to conduct post flight analysis of the VeSpR mission result data.
     \end{itemize}
     
     %% MAVEN
-    \textbf{BU Center for Space Physics}, Boston, MA \hfill \textbf{September 2014 -- present} \\
+    \textbf{BU Center for Space Physics}, Boston, MA \hfill \textbf{September 2014 -- October 2014} \\
     \textsl{Research Assistant \hfill \about 3 month}
     \vspace{1mm}
     \begin{itemize}[leftmargin=2em]
-        \item Constructing an algorithm to automatically determine the scattered light in
-        an image taken by the IUVS echelle spectrograph. 
+        \item Constructing an algorithm to automatically remove scattered background
+          light in images taken by the Mars Atmosphere and Volatile Evolution
+          (MAVEN) Imaging Ultraviolet Spectrograph (IUVS) instrument.
     \end{itemize}
     
     %% Vacuum Chamber Lab (Room 507)
     \textbf{BU Center for Space Physics}, Boston, MA \hfill \textbf{Summer 2014} \\
-    \textsl{Lab Assistant \hfill \about 4 months}
+    \textsl{Lab Assistant \hfill \about 3 months}
     \vspace{1mm}
     \begin{itemize}[leftmargin=2em]
         \item Repaired electrical and mechanical defects in a damaged vacuum
-          chamber that is used for satellite systems testing.
+          chamber that will be used for satellite systems testing.
         \item Developed software for an Arduino Mega 2560 to control four stepper motors.
     \end{itemize}
     
-    %% VeSpR Post Flight Calibration
-    \textbf{BU Center for Space Physics}, Boston, MA \hfill \textbf{May 2014 -- present} \\
-    \textsl{Lab Assistant \hfill \about 7 months}
-    \vspace{1mm}
-    \begin{itemize}[leftmargin=2em]
-        \item Determining the wavelength of light as a function of pixel location on
-          the imager CCD.
-        \item Developing software to analyze the Venus Spectral Rocket mission result data.
-        \item Post flight calibration on the Venus Spectral Rocket's echelle imager and spectrograph.
-    \end{itemize}
     
     %%__________________________________________________________________________
     %% Projects
@@ -118,11 +136,12 @@ Santa Barbara, CA 93101 &  \textbf{Github:} \href{http://github.com/gabeg805}{gi
         Manager (DWM).
         \item \textbf{Source: } \textsl{\href{http://github.com/gabeg805/Gabes-Status-Bar}{github.com/gabeg805/Gabes-Status-Bar}}
     \end{itemize}
+    \vspace{-1mm}
     
     \textbf{Gabe's Login Manager \hfill August 7, 2014}
     \vspace{1mm}
     \begin{itemize}
-        \item C based login manager I created for fun to customize my Linux operating
+        \item C based login manager I created for fun in order further customize my Linux operating
           system.
         \item \textbf{Source: } \textsl{\href{http://github.com/gabeg805/Gabes-Login-Manager}{github.com/gabeg805/Gabes-Login-Manager}}
     \end{itemize}
@@ -131,12 +150,12 @@ Santa Barbara, CA 93101 &  \textbf{Github:} \href{http://github.com/gabeg805}{gi
     \textbf{USB Device Automounter \hfill April 10, 2014}
     \vspace{1mm}
     \begin{itemize}
-        \item When a USB device is plugged into a Linux system, a file is created in
-        \textsl{/dev} and a symbolic link is created in \textsl{/dev/block}. My program waits for a
-        file to be created in \textsl{/dev/block}, mounts the device, and prints the device
-        information to a log.
-        \item My program is composed of several bash scripts that use native commands to Arch Linux, such as \textsl{systemd} and \textsl{systemctl}. 
-        \item \textbf{Source: } \textsl{\href{http://github.com/gabeg805/Linux-Scripts/tree/master/programs/automount}{github.com/gabeg805/Linux-Scripts/tree/master/programs/automount}}
+        \item On an Arch Linux system, utilizes \textsl{systemd} and
+          \textsl{systemctl} to watch the \textsl{/dev/block} directory. When a
+          device is plugged into the computer, a file will be created in that
+          directory that points to the device. Device information will then be
+          gathered and logged, and then the device will be mounted.
+        \item \textbf{Source: } \textsl{\href{http://github.com/gabeg805/Automount}{github.com/gabeg805/Automount}}
     \end{itemize}
     \vspace{-1mm}
     
