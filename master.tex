@@ -1,0 +1,246 @@
+%% Packages
+\documentclass[10pt]{article}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cmap}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage[top=0.5in, bottom=0.5in, left=0.5in, right=0.5in]{geometry}
+\usepackage{array}
+%% \usepackage{showframe}
+%% \usepackage{layout}
+
+%% Header/footer margins 
+\topmargin=-1in
+\headheight=0pt
+\headsep=0.5in
+\footskip=0pt
+\marginparwidth=0pt
+\marginparpush=0pt
+
+% Itemize spacing
+%% \setlist{nolistsep}
+%% \setlist{noitemsep}
+%% \setlist{nosep}
+\setlist{leftmargin=1em}
+\setlist[itemize,1]{label=$\circ$}
+
+%% Resume info (fields can be empty)
+\newcommand{\Name}{Gabriel Gonzalez}
+\newcommand{\Address}{621 West Cota Street Unit B}
+\newcommand{\City}{Santa Barbara, Ca 93101}
+\newcommand{\Phone}{(805) 895-4626}
+\newcommand{\Email}{gabeg@bu.edu}
+\newcommand{\Github}{github.com/gabeg805}
+\newcommand{\Linkedin}{linkedin.com/in/gabeg805}
+\newcommand{\Website}{gabegonzalez.me}
+
+% Environments
+\newenvironment{ResumeSection}[1]{
+  \begin{tabular}{ p{0.1\textwidth} p{0.8\textwidth} }
+    \SectionTitle{\SectionTitleStack{#1}}
+}{
+  \SectionEnd
+  \end{tabular}
+}
+
+\newenvironment{ResumeWorkSection}[1]{
+  \begin{tabular}{ p{0.1\textwidth} p{0.8\textwidth} }
+    \SectionTitle{\SectionTitleStack{#1}}
+}{
+  \WorkEnd
+  \end{tabular}
+}
+
+\newenvironment{WorkItemize}{
+  \begin{minipage}[t]{\linewidth}
+    \begin{itemize}[parsep=0.125em]
+}{
+    \end{itemize}
+  \end{minipage}
+}
+
+%% Resume section styling
+\newcommand{\FontSize}{10pt}
+\newcommand{\SectionTitleStack}[1]{\smash[b]{\begin{tabular}[t]{@{}c@{}}#1\end{tabular}}}
+\newcommand{\SectionTitle}[1]{\textsc{\small #1}}
+\newcommand{\SectionItem}[1]{   &         #1              \vspace{0.25em} \\}
+\newcommand{\SectionItemB}[1]{  & \textbf{#1}             \vspace{0.25em} \\}
+\newcommand{\SectionItemI}[1]{  & \textsl{#1}             \vspace{0.25em} \\}
+\newcommand{\SectionItemBR}[2]{ & \textbf{#1}         #2  \vspace{0.25em} \\}
+\newcommand{\SectionItemBI}[2]{ & \textbf{#1} \textsl{#2} \vspace{0.25em} \\}
+\newcommand{\SectionEnd}{\vspace{1em} \\}
+
+%% Resume employment styling
+\newcommand{\WorkEmployer}[1]{ & \textbf{#1} \hfill}
+\newcommand{\WorkLocation}[1]{   \textbf{#1} \vspace{0.25em} \\}
+\newcommand{\WorkPosition}[1]{ & \textsl{#1} \hfill}
+\newcommand{\WorkDate}[1]{       \textsl{#1} \vspace{0.5em} \\}
+\newcommand{\WorkItem}[1]{& \begin{WorkItemize} \item #1 \end{WorkItemize} \\}
+\newcommand{\WorkEnd}{\vspace{1em} \\}
+
+%% Header
+\newcommand{\ResumeHeader}{
+  \begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
+    \textbf{\Large \Name} & \textbf{\href{mailto:\Email}{\Email}} \\
+    \Address              & \textbf{Website:} \href{http://\Website}{\Website} \\
+    \City                 & \textbf{Github:}  \href{http://\Github}{\Github} \\
+    \Phone                & \textbf{LinkedIn:} \href{http://\Linkedin}{\Linkedin} \\
+  \end{tabular*}
+
+  \hspace{2mm}\rule{0.92\textwidth}{0.4pt}
+  \vspace{1.2em}
+}
+
+\newcommand{\ResumeHeaderReduced}{
+  \begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
+    \textbf{\large \Name} & \textbf{\href{mailto:\Email}{\Email}} \\
+  \end{tabular*}
+
+  \vspace{-0.5em}
+  \hspace{2mm}\rule{0.92\textwidth}{0.4pt} 
+  \vspace{1.2em}
+}
+
+
+%% Resume start
+%% \pagenumbering{gobble}
+\thispagestyle{empty}
+\begin{document} %\layout
+\ResumeHeader
+
+  %% Objective
+  \begin{ResumeSection}{Objective}
+    \SectionItem{I am seeking a software engineering position where I can make a
+      positive contribution to the technology industry by applying my knowledge of
+      programming, mathematics, and astrophysics.
+    }
+  \end{ResumeSection}
+
+  %% Computer Skills
+  \begin{ResumeSection}{Computer \\ Skills}
+    \SectionItemBR{Languages:}{C, C++, Java, Python, Bash, IDL, LaTeX, Assembly}
+    \SectionItemBR{Software:}{Git, SVN, GNU Debugger (GDB), Valgrind, Arduino IDE}
+    \SectionItemBR{Operating systems:}{Unix, Windows, OS X}
+  \end{ResumeSection}
+
+  %% Education
+  \begin{ResumeSection}{Education}
+    \SectionItemB{Boston University \hfill May 2015}
+    \SectionItemI{BA : Astronomy and Physics}
+  \end{ResumeSection}
+
+  %% Experience
+  \begin{ResumeWorkSection}{Work \\ Experience}
+    %% NASA
+    \WorkEmployer{National Aeronautics and Space Administration}
+    \WorkLocation{Greenbelt, MD}
+    \WorkPosition{Software Engineer}
+    \WorkDate{June 2015 -- present}
+    \WorkItem{Integrating a program called 42 with flight software in order to
+      enable CubeSat Hardware-in-the-Loop testing.}
+  \end{ResumeWorkSection}
+
+  %% EbbRT
+  \begin{ResumeWorkSection}{}
+    \WorkEmployer{Boston University Computer Science Department}
+    \WorkLocation{Boston, MA}
+    \WorkPosition{Software Engineer}
+    \WorkDate{January 2015 -- present}
+    \WorkItem{Testing and modifying the kernel of a multi-node library runtime,
+      called EbbRT, in order to implement a clock for the system.
+    }
+  \end{ResumeWorkSection}
+
+  %% ANDESITE
+  \begin{ResumeWorkSection}{}
+    \WorkEmployer{Boston University Satellite for Applications and Training}
+    \WorkLocation{Boston, MA}
+    \WorkPosition{Software Engineer}
+    \WorkDate{September 2014 -- present}
+    & \begin{WorkItemize}
+      \item Developing communications software for Boston University's ANDESITE
+        nanosatellite, and the picosatellites it will house.
+      \item Developing sensory software for eight picosats composed of an Atmel
+        ATMega 2560 chip, an RFM22B radio to send and receive data, an LSM9DS0
+        gyroscope/accelerometer/magnetometer sensor, and a global positioning
+        system.
+      \item Creating a simulation of in-flight processes that will occur when
+        the nanosat and picosats are in orbit.
+    \end{WorkItemize}
+  \end{ResumeWorkSection}
+
+  %% VeSpR Post Flight Calibration
+  \begin{ResumeWorkSection}{}
+    \WorkEmployer{Boston University Center for Space Physics}
+    \WorkLocation{Boston, MA}
+    \WorkPosition{Lab Assistant}
+    \WorkDate{May 2014 -- February 2015}
+    & \begin{WorkItemize}
+        \item Constructed an algorithm that expresses the wavelength of light as a
+          function of pixel location on the Venus Spectral Rocket (VeSpR) imager CCD.
+        \item Developed software to conduct post flight analysis of the VeSpR
+          mission result data.
+      \end{WorkItemize}
+  \end{ResumeWorkSection}
+
+  %% MAVEN
+  \begin{ResumeWorkSection}{}
+    \WorkEmployer{Boston University Center for Space Physics}
+    \WorkLocation{Boston, MA}
+    \WorkPosition{Research Assistant}
+    \WorkDate{September 2014 -- October 2014}
+    \WorkItem{Constructed an algorithm to automatically remove scattered
+      background light in images taken by the Mars Atmosphere and Volatile
+      Evolution (MAVEN) Imaging Ultraviolet Spectrograph (IUVS) instrument.
+    }
+  \end{ResumeWorkSection}
+
+  %% Vacuum Chamber Lab (Room 507)
+  \begin{ResumeWorkSection}{}
+    \WorkEmployer{Boston University Center for Space Physics}
+    \WorkLocation{Boston, MA}
+    \WorkPosition{Lab Assistant}
+    \WorkDate{June 2014 -- August 2014}
+    & \begin{WorkItemize}
+        \item Repaired electrical and mechanical defects in a damaged vacuum
+          chamber.
+        \item Developed software for an Arduino Mega 2560 that would be used to
+          control four stepper motors.
+      \end{WorkItemize}
+  \end{ResumeWorkSection}
+
+  %% Add resume header for next page
+  \vspace{1em}
+  \ResumeHeaderReduced
+
+  %% MGS and PVO
+  \begin{ResumeWorkSection}{Work \\ Experience}
+    \WorkEmployer{Boston University Center for Space Physics}
+    \WorkLocation{Boston, MA}
+    \WorkPosition{Research Assistant}
+    \WorkDate{February 2012 -- December 2013}
+    \WorkItem{Did stuff with PW.}
+  \end{ResumeWorkSection}
+
+  %% Projects
+  \begin{ResumeSection}{Projects}
+    \SectionItemB{Elysia}
+    \SectionItemI{Login Manager}
+    \SectionItem{A highly configurable login manager.}
+    \SectionEnd
+
+    \SectionItemB{Atlas}
+    \SectionItemI{Status Bar}
+    \SectionItem{Meant to be a replacement for the dwm text statusbar.}
+    \SectionEnd
+
+    \SectionItemB{Aria}
+    \SectionItemI{Notification Bubble}
+    \SectionItem{Meant to be a replacement for the dwm text statusbar.}
+  \end{ResumeSection}
+  %% \section{\mysidestyle Projects}
+  
+  %% \input{../lib/proj/bar.tex}
+  %% \input{../lib/proj/login.tex}
+
+\end{document}
