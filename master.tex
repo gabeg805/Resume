@@ -119,7 +119,7 @@
   %% Computer Skills
   \begin{ResumeSection}{Computer \\ Skills}
     \SectionItemBR{Languages:}{C, C++, Java, Python, Bash, IDL, LaTeX, Assembly}
-    \SectionItemBR{Software:}{Git, SVN, GNU Debugger (GDB), Valgrind, Arduino IDE}
+    \SectionItemBR{Software:}{Git, SVN, GNU Debugger (GDB), Valgrind}
     \SectionItemBR{Operating systems:}{Unix, Windows, OS X}
   \end{ResumeSection}
 
@@ -132,12 +132,12 @@
   %% Experience
   \begin{ResumeWorkSection}{Work \\ Experience}
     %% NASA
-    \WorkEmployer{National Aeronautics and Space Administration}
+    \WorkEmployer{NASA Goddard Space Flight Center}
     \WorkLocation{Greenbelt, MD}
     \WorkPosition{Software Engineer}
     \WorkDate{June 2015 -- present}
-    \WorkItem{Integrating a program called 42 with flight software in order to
-      enable CubeSat Hardware-in-the-Loop testing.}
+    \WorkItem{Integrating an orbit simulation program, 42, with flight software
+      in order to enable CubeSat Hardware-in-the-Loop testing.}
   \end{ResumeWorkSection}
 
   %% EbbRT
@@ -145,10 +145,15 @@
     \WorkEmployer{Boston University Computer Science Department}
     \WorkLocation{Boston, MA}
     \WorkPosition{Software Engineer}
-    \WorkDate{January 2015 -- present}
-    \WorkItem{Testing and modifying the kernel of a multi-node library runtime,
-      called EbbRT, in order to implement a clock for the system.
-    }
+    \WorkDate{January 2015 -- May 2015}
+    & \begin{WorkItemize}
+        \item Implemented a programmable interval timer (PIT) clock for the
+          kernel of the Elastic Building block Runtime (EbbRT), a multi-node
+          library runtime.
+        \item Completed the EbbRT clock interface which initializes the correct
+          clock (PIT or paravirtualized clock), depending on the device's
+          hardware.
+      \end{WorkItemize}
   \end{ResumeWorkSection}
 
   %% ANDESITE
@@ -156,17 +161,14 @@
     \WorkEmployer{Boston University Satellite for Applications and Training}
     \WorkLocation{Boston, MA}
     \WorkPosition{Software Engineer}
-    \WorkDate{September 2014 -- present}
+    \WorkDate{September 2014 -- May 2015}
     & \begin{WorkItemize}
-      \item Developing communications software for Boston University's ANDESITE
-        nanosatellite, and the picosatellites it will house.
-      \item Developing sensory software for eight picosats composed of an Atmel
-        ATMega 2560 chip, an RFM22B radio to send and receive data, an LSM9DS0
-        gyroscope/accelerometer/magnetometer sensor, and a global positioning
-        system.
-      \item Creating a simulation of in-flight processes that will occur when
-        the nanosat and picosats are in orbit.
-    \end{WorkItemize}
+        \item Created a simplified day-in-the-life simulation for the command
+          and data handling subsytem.
+        \item Developed the communications protocol between the main ANDESITE
+          nanosatellite and eight picosatellites.
+        \item Implemented the sensory data collection algorithm for eight picosatellites.
+      \end{WorkItemize}
   \end{ResumeWorkSection}
 
   %% VeSpR Post Flight Calibration
@@ -176,10 +178,13 @@
     \WorkPosition{Lab Assistant}
     \WorkDate{May 2014 -- February 2015}
     & \begin{WorkItemize}
-        \item Constructed an algorithm that expresses the wavelength of light as a
-          function of pixel location on the Venus Spectral Rocket (VeSpR) imager CCD.
-        \item Developed software to conduct post flight analysis of the VeSpR
-          mission result data.
+        \item Developed an algorithm to express the wavelength of light as a
+          function of pixel location on the Venus Spectral Rocket (VeSpR) imager
+          CCD.
+        \item Created a model of the expected spectra (1000 -- 2500\textit{\AA}) for
+          Venus and Altair.
+        \item Created a model for the payload quantum efficiency, reflectivity,
+          and prism efficiency.
       \end{WorkItemize}
   \end{ResumeWorkSection}
 
@@ -189,7 +194,7 @@
     \WorkLocation{Boston, MA}
     \WorkPosition{Research Assistant}
     \WorkDate{September 2014 -- October 2014}
-    \WorkItem{Constructed an algorithm to automatically remove scattered
+    \WorkItem{Developed an algorithm to automatically remove scattered
       background light in images taken by the Mars Atmosphere and Volatile
       Evolution (MAVEN) Imaging Ultraviolet Spectrograph (IUVS) instrument.
     }
@@ -202,10 +207,8 @@
     \WorkPosition{Lab Assistant}
     \WorkDate{June 2014 -- August 2014}
     & \begin{WorkItemize}
-        \item Repaired electrical and mechanical defects in a damaged vacuum
-          chamber.
-        \item Developed software for an Arduino Mega 2560 that would be used to
-          control four stepper motors.
+        \item Developed software for a microcontroller to control the inner
+          housing that holds items placed in the vacuum chamber.
       \end{WorkItemize}
   \end{ResumeWorkSection}
 
@@ -213,13 +216,43 @@
   \vspace{1em}
   \ResumeHeaderReduced
 
-  %% MGS and PVO
+  %% Vacuum Chamber Lab (Room 507) cont.
   \begin{ResumeWorkSection}{Work \\ Experience}
+    \WorkEmployer{Boston University Center for Space Physics}
+    \WorkLocation{Boston, MA}
+    \WorkPosition{Lab Assistant}
+    \WorkDate{June 2014 -- August 2014}
+    & \begin{WorkItemize}
+        \item Created a CAD model of the vacuum chamber's switchboard.
+        \item Tested the operating state of the damaged vacuum chamber.
+        \item Replaced defective vacuum chamber equipment.
+      \end{WorkItemize}
+  \end{ResumeWorkSection}
+
+  %% MGS and PVO
+  \begin{ResumeWorkSection}{}
     \WorkEmployer{Boston University Center for Space Physics}
     \WorkLocation{Boston, MA}
     \WorkPosition{Research Assistant}
     \WorkDate{February 2012 -- December 2013}
-    \WorkItem{Did stuff with PW.}
+    & \begin{WorkItemize}
+        \item Developed an algorithm to analyze the response of the Mars
+          ionosphere to solar flares, utilizing radio occultation measurements
+          made by the Mars Global Surveyor (MGS).
+        \item Categorized solar flare intensities based on the Flare Irradiance
+          Spectral Model's (FISM) flare strength and the electron density
+          enhancement in the M2 region of the ionosphere.
+        \item Analyzed the relationship between solar flare intensity and
+          Earth-Sun-Moon angle, as well as solar flare intensity and solar
+          zenith angle.
+        \item Created a map of the electron density in the Venus upper
+          ionosphere using Pioneer Venus Orbiter (PVO) Ion Mass Spectrometer
+          (OIMS) data.
+        \item Compared the OIMS data to the Orbiter Electron Temperature Probe
+          and Orbiter Retarding Potential Analyzer (ORPA) ionospheric data.
+        \item Determined the potential invalidity of the PVO dataset due to its
+          skewed results when compared to VIRI and VEX.
+      \end{WorkItemize}
   \end{ResumeWorkSection}
 
   %% Projects
