@@ -6,6 +6,7 @@
 \usepackage{amsmath}
 \usepackage[top=0.5in, bottom=0.5in, left=0.5in, right=0.5in]{geometry}
 \usepackage{array}
+\usepackage{microtype}
 %% \usepackage{showframe}
 %% \usepackage{layout}
 
@@ -52,7 +53,7 @@
 }
 
 \newenvironment{WorkItemize}{
-  \begin{minipage}[t]{\linewidth}
+  \begin{minipage}[t]{0.97\linewidth}
     \begin{itemize}[parsep=0.125em]
 }{
     \end{itemize}
@@ -104,7 +105,7 @@
 
 %% Resume start
 %% \pagenumbering{gobble}
-\thispagestyle{empty}
+%% \thispagestyle{empty}
 \begin{document} %\layout
 \ResumeHeader
 
@@ -256,6 +257,7 @@
   \end{ResumeWorkSection}
 
   %% Projects
+  \vspace{0.5em}
   \begin{ResumeSection}{Projects}
     \SectionItemB{Elysia}
     \SectionItemI{Login Manager}
