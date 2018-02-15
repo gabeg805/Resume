@@ -1,288 +1,187 @@
-%% Packages
-\documentclass[10pt]{article}
-\usepackage[hidelinks]{hyperref}
-\usepackage{cmap}
-\usepackage{enumitem}
-\usepackage{amsmath}
-\usepackage[top=0.5in, bottom=0.5in, left=0.5in, right=0.5in]{geometry}
-\usepackage{array}
-\usepackage{microtype}
-%% \usepackage{showframe}
-%% \usepackage{layout}
+% Packages
+\documentclass{myresume}
 
-%% Header/footer margins 
-\topmargin=-1in
-\headheight=0pt
-\headsep=0.5in
-\footskip=0pt
-\marginparwidth=0pt
-\marginparpush=0pt
+% Define header information
+\renewcommand{\Name}{Gabriel Gonzalez}
+\renewcommand{\Address}{2005 Columbia Pike, Apt \#525}
+\renewcommand{\City}{Arlington, VA 22204}
+\renewcommand{\Phone}{(805) 895-4626}
+\renewcommand{\Email}{gabeg@bu.edu}
+\renewcommand{\Github}{github.com/gabeg805}
+\renewcommand{\Linkedin}{linkedin.com/in/gabeg805}
+\renewcommand{\Website}{gabegonzalez.me}
 
-% Itemize spacing
-%% \setlist{nolistsep}
-%% \setlist{noitemsep}
-%% \setlist{nosep}
-\setlist{leftmargin=1em}
-\setlist[itemize,1]{label=$\circ$}
+% ------------------------------------------------------------------------------
+% Resume start
+\begin{document}
 
-%% Resume info (fields can be empty)
-\newcommand{\Name}{Gabriel Gonzalez}
-\newcommand{\Address}{9210 5th Street}
-\newcommand{\City}{Lanham, MD 20706}
-\newcommand{\Phone}{(805) 895-4626}
-\newcommand{\Email}{gabeg@bu.edu}
-\newcommand{\Github}{github.com/gabeg805}
-\newcommand{\Linkedin}{linkedin.com/in/gabeg805}
-\newcommand{\Website}{gabegonzalez.me}
+  % ----------------------------------------------------------------------------
+  % Populate header
+  \ResumeHeader
 
-% Environments
-\newenvironment{ResumeSection}[1]{
-  \begin{tabular}{ p{0.1\textwidth} p{0.8\textwidth} }
-    \SectionTitle{\SectionTitleStack{#1}}
-}{
-  \SectionEnd
-  \end{tabular}
-}
-
-\newenvironment{ResumeWorkSection}[1]{
-  \begin{tabular}{ p{0.1\textwidth} p{0.8\textwidth} }
-    \SectionTitle{\SectionTitleStack{#1}}
-}{
-  \WorkEnd
-  \end{tabular}
-}
-
-\newenvironment{WorkItemize}{
-  \begin{minipage}[t]{0.97\linewidth}
-    \begin{itemize}[parsep=0.125em]
-}{
-    \end{itemize}
-  \end{minipage}
-}
-
-%% Resume section styling
-\newcommand{\FontSize}{10pt}
-\newcommand{\SectionTitleStack}[1]{\smash[b]{\begin{tabular}[t]{@{}c@{}}#1\end{tabular}}}
-\newcommand{\SectionTitle}[1]{\textsc{\small #1}}
-\newcommand{\SectionItem}[1]{   &         #1              \vspace{0.25em} \\}
-\newcommand{\SectionItemB}[1]{  & \textbf{#1}             \vspace{0.25em} \\}
-\newcommand{\SectionItemI}[1]{  & \textsl{#1}             \vspace{0.25em} \\}
-\newcommand{\SectionItemBR}[2]{ & \textbf{#1}         #2  \vspace{0.25em} \\}
-\newcommand{\SectionItemBI}[2]{ & \textbf{#1} \textsl{#2} \vspace{0.25em} \\}
-\newcommand{\SectionEnd}{\vspace{1em} \\}
-
-%% Resume employment styling
-\newcommand{\WorkEmployer}[1]{ & \textbf{#1} \hfill}
-\newcommand{\WorkLocation}[1]{   \textbf{#1} \vspace{0.25em} \\}
-\newcommand{\WorkPosition}[1]{ & \textsl{#1} \hfill}
-\newcommand{\WorkDate}[1]{       \textsl{#1} \vspace{0.5em} \\}
-\newcommand{\WorkItem}[1]{& \begin{WorkItemize} \item #1 \end{WorkItemize} \\}
-\newcommand{\WorkEnd}{\vspace{1em} \\}
-
-%% Header
-\newcommand{\ResumeHeader}{
-  \begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
-    \textbf{\Large \Name} & \textbf{\href{mailto:\Email}{\Email}} \\
-    \Address              & \textbf{Website:} \href{http://\Website}{\Website} \\
-    \City                 & \textbf{Github:}  \href{http://\Github}{\Github} \\
-    \Phone                & \textbf{LinkedIn:} \href{http://\Linkedin}{\Linkedin} \\
-  \end{tabular*}
-
-  \hspace{2mm}\rule{0.92\textwidth}{0.4pt}
-  \vspace{1.2em}
-}
-
-\newcommand{\ResumeHeaderReduced}{
-  \begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
-    \textbf{\large \Name} & \textbf{\href{mailto:\Email}{\Email}} \\
-  \end{tabular*}
-
-  \vspace{-0.5em}
-  \hspace{2mm}\rule{0.92\textwidth}{0.4pt} 
-  \vspace{1.2em}
-}
-
-
-%% Resume start
-%% \pagenumbering{gobble}
-%% \thispagestyle{empty}
-\begin{document} %\layout
-\ResumeHeader
-
-  %% Objective
+  % ----------------------------------------------------------------------------
+  % Objective
   \begin{ResumeSection}{Objective}
-    \SectionItem{I am seeking a software engineering position where I can make a
+    \sectiontext{I am seeking a software engineering position where I can make a
       positive contribution to the technology industry by applying my knowledge of
-      programming, mathematics, and astrophysics.
-    }
+      programming, mathematics, and astrophysics.}
   \end{ResumeSection}
 
-  %% Computer Skills
+  % ----------------------------------------------------------------------------
+  % Computer Skills
   \begin{ResumeSection}{Computer \\ Skills}
-    \SectionItemBR{Languages:}{C, C++, Java, Python, Bash, IDL, LaTeX, Assembly}
-    \SectionItemBR{Software:}{Git, SVN, GNU Debugger (GDB), Valgrind}
-    \SectionItemBR{Operating systems:}{Unix, Windows, OS X}
+    \explist{Languages}{C, C++, Java, Python, Bash, IDL, LaTeX, Assembly}
+    \explist{Software}{Git, SVN, GNU Debugger (GDB), Valgrind}
+    \explist{Operating systems}{Linux, Windows, OS X}
   \end{ResumeSection}
 
-  %% Education
+  % ----------------------------------------------------------------------------
+  % Education
   \begin{ResumeSection}{Education}
-    \SectionItemB{Boston University \hfill May 2015}
-    \SectionItemI{BA : Astronomy and Physics}
+    \university{Boston University}{May 2015}
+    \degree{Bachelor of Arts}{Astronomy and Physics}
   \end{ResumeSection}
 
-  %% Experience
-  \begin{ResumeWorkSection}{Work \\ Experience}
-    %% NASA
-    \WorkEmployer{NASA Goddard Space Flight Center}
-    \WorkLocation{Greenbelt, MD}
-    \WorkPosition{Software Engineer}
-    \WorkDate{June 2015 -- August 2015}
-    \WorkItem{Designed, implemented, and tested an API to enable
+  % ----------------------------------------------------------------------------
+  % Experience
+  \begin{ResumeSection}{Work \\ Experience}
+
+    % NASA
+    \workplace{NASA Goddard Space Flight Center}{Greenbelt, MD}
+    \workposition{Software Engineer}{June 2015 -- August 2015}
+
+    \worktask{Designed, implemented, and tested an API to enable
       hardware-in-the-loop testing for future CubeSat missions, by integrating
       an attitude and orbit simulation program with flight software.}
-  \end{ResumeWorkSection}
 
-  %% EbbRT
-  \begin{ResumeWorkSection}{}
-    \WorkEmployer{Boston University Computer Science Department}
-    \WorkLocation{Boston, MA}
-    \WorkPosition{Software Engineer}
-    \WorkDate{January 2015 -- May 2015}
-    & \begin{WorkItemize}
-        \item Implemented a programmable interval timer (PIT) clock for the
-          kernel of the Elastic Building block Runtime (EbbRT) research project.
-        \item Completed the EbbRT clock initialization algorithm which chooses
-          the correct clock (PIT or paravirtualized clock) to initialize,
-          depending on the device's hardware.
-      \end{WorkItemize}
-  \end{ResumeWorkSection}
+    \subsectionvspace
 
-  %% ANDESITE
-  \begin{ResumeWorkSection}{}
-    \WorkEmployer{Boston University Satellite for Applications and Training}
-    \WorkLocation{Boston, MA}
-    \WorkPosition{Software Engineer}
-    \WorkDate{September 2014 -- May 2015}
-    & \begin{WorkItemize}
-        \item Created a simplified day-in-the-life simulation for the command
-          and data handling subsystem.
-        \item Developed the communications algorithm between the main ANDESITE
-          nanosatellite and eight picosatellites.
-        \item Implemented the sensory data collection algorithm for eight picosatellites.
-      \end{WorkItemize}
-  \end{ResumeWorkSection}
+    % EbbRT
+    \workplace{Boston University Computer Science Department}{Boston, MA}
+    \workposition{Software Engineer}{January 2015 -- May 2015}
 
-  %% VeSpR Post Flight Calibration
-  \begin{ResumeWorkSection}{}
-    \WorkEmployer{Boston University Center for Space Physics}
-    \WorkLocation{Boston, MA}
-    \WorkPosition{Lab Assistant}
-    \WorkDate{May 2014 -- February 2015}
-    & \begin{WorkItemize}
-        \item Developed an algorithm to express the wavelength of light as a
-          function of pixel location on the Venus Spectral Rocket (VeSpR) imager
-          CCD.
-        \item Created a model of the expected spectra (1000 -- 2500\textit{\AA}) for
-          Venus and Altair.
-        \item Created a model for the payload quantum efficiency, reflectivity,
-          and prism efficiency.
-      \end{WorkItemize}
-  \end{ResumeWorkSection}
+    \worktask{Implemented a programmable interval timer (PIT) clock for the
+      kernel of the Elastic Building block Runtime (EbbRT) research project.}
+    \worktask{Completed the EbbRT clock initialization algorithm which chooses
+      the correct clock (PIT or paravirtualized clock) to initialize,
+      depending on the device's hardware.}
 
-  %% MAVEN
-  \begin{ResumeWorkSection}{}
-    \WorkEmployer{Boston University Center for Space Physics}
-    \WorkLocation{Boston, MA}
-    \WorkPosition{Research Assistant}
-    \WorkDate{September 2014 -- October 2014}
-    \WorkItem{Developed an algorithm to automatically remove scattered
+    \subsectionvspace
+
+    % ANDESITE
+    \workplace{Boston University Satellite for Applications and Training}{Boston, MA}
+    \workposition{Software Engineer}{September 2014 -- May 2015}
+
+    \worktask{Created a simplified day-in-the-life simulation for the command
+      and data handling subsystem.}
+    \worktask{Developed the communications algorithm between the main ANDESITE
+      nanosatellite and eight picosatellites.}
+    \worktask{Implemented the sensory data collection algorithm for eight picosatellites.}
+
+    \subsectionvspace
+
+    % VeSpR Post Flight Calibration
+    \workplace{Boston University Center for Space Physics}{Boston, MA}
+    \workposition{Lab Assistant}{May 2014 -- February 2015}
+
+    \worktask{Developed an algorithm to express the wavelength of light as a
+      function of pixel location on the Venus Spectral Rocket (VeSpR) imager
+      CCD.}
+    \worktask{Created a model of the expected spectra (1000 -- 2500\textit{\AA}) for
+      Venus and Altair.}
+    \worktask{Created a model for the payload quantum efficiency, reflectivity,
+      and prism efficiency.}
+
+    \subsectionvspace
+
+    % MAVEN
+    \workplace{Boston University Center for Space Physics}{Boston, MA}
+    \workposition{Research Assistant}{September 2014 -- October 2014}
+
+    \worktask{Developed an algorithm to automatically remove scattered
       background light in images taken by the Imaging Ultraviolet Spectrograph
-      (IUVS) on the Mars Atmosphere and Volatile Evolution (MAVEN) space probe.
-    }
-  \end{ResumeWorkSection}
+      (IUVS) on the Mars Atmosphere and Volatile Evolution (MAVEN) space probe.}
 
-  %% Vacuum Chamber Lab (Room 507)
-  \begin{ResumeWorkSection}{}
-    \WorkEmployer{Boston University Center for Space Physics}
-    \WorkLocation{Boston, MA}
-    \WorkPosition{Lab Assistant}
-    \WorkDate{June 2014 -- August 2014}
-    & \begin{WorkItemize}
-        \item Developed software for a microcontroller that controls the inner
-          housing inside a vacuum chamber.
-      \end{WorkItemize}
-  \end{ResumeWorkSection}
+    \subsectionvspace
 
-  %% Add resume header for next page
-  \vspace{1em}
+    % Vacuum Chamber Lab (Room 507)
+    \workplace{Boston University Center for Space Physics}{Boston, MA}
+    \workposition{Lab Assistant}{June 2014 -- August 2014}
+
+    \worktask{Developed software for a microcontroller that controls the inner
+      housing inside a vacuum chamber.}
+
+    \subsectionvspace
+
+  \end{ResumeSection}
+
+  % ----------------------------------------------------------------------------
+  % Next page -- add resume header on the new page
+  \newpage
   \ResumeHeaderReduced
 
-  %% Vacuum Chamber Lab (Room 507) cont.
-  \begin{ResumeWorkSection}{Work \\ Experience}
-    \WorkEmployer{Boston University Center for Space Physics}
-    \WorkLocation{Boston, MA}
-    \WorkPosition{Lab Assistant}
-    \WorkDate{June 2014 -- August 2014}
-    & \begin{WorkItemize}
-        \item Created a CAD model of a vacuum chamber's switchboard.
-        \item Tested the operating state of a damaged vacuum chamber.
-        \item Replaced defective vacuum chamber equipment.
-      \end{WorkItemize}
-  \end{ResumeWorkSection}
+  % ----------------------------------------------------------------------------
+  % Experience (cont.)
+  \begin{ResumeSection}{Work \\ Experience}
 
-  %% MGS and PVO
-  \begin{ResumeWorkSection}{}
-    \WorkEmployer{Boston University Center for Space Physics}
-    \WorkLocation{Boston, MA}
-    \WorkPosition{Research Assistant}
-    \WorkDate{February 2012 -- December 2013}
-    & \begin{WorkItemize}
-        \item Developed an algorithm to analyze the response of the Mars
-          ionosphere to solar flares, utilizing radio occultation measurements
-          made by the Mars Global Surveyor (MGS).
-        \item Categorized solar flare intensities based on the Flare Irradiance
-          Spectral Model's (FISM) flare strength and the electron density
-          enhancement in the M2 region of the ionosphere.
-        \item Analyzed the relationship between solar flare intensity and
-          Earth-Sun-Moon angle, as well as solar flare intensity and solar
-          zenith angle.
-        \item Created a map of the electron density in the Venus upper
-          ionosphere using Pioneer Venus Orbiter (PVO) Ion Mass Spectrometer
-          (OIMS) data.
-        \item Compared the OIMS data to the Orbiter Electron Temperature Probe
-          and Orbiter Retarding Potential Analyzer (ORPA) ionospheric data.
-        \item Determined the potential invalidity of the PVO data set due to its
-          skewed results when compared to VIRI and VEX.
-      \end{WorkItemize}
-  \end{ResumeWorkSection}
+    % Vacuum Chamber Lab (Room 507) cont.
+    \workplace{Boston University Center for Space Physics}{Boston, MA}
+    \workposition{Lab Assistant}{June 2014 -- August 2014}
 
-  %% Projects
-  \vspace{0.5em}
+    \worktask{Created a CAD model of a vacuum chamber's switchboard.}
+    \worktask{Tested the operating state of a damaged vacuum chamber.}
+    \worktask{Replaced defective vacuum chamber equipment.}
+
+    \subsectionvspace
+
+    % MGS and PVO
+    \workplace{Boston University Center for Space Physics}{Boston, MA}
+    \workposition{Research Assistant}{February 2012 -- December 2013}
+
+    \worktask{Developed an algorithm to analyze the response of the Mars
+      ionosphere to solar flares, utilizing radio occultation measurements
+      made by the Mars Global Surveyor (MGS).}
+    \worktask{Categorized solar flare intensities based on the Flare Irradiance
+      Spectral Model's (FISM) flare strength and the electron density
+      enhancement in the M2 region of the ionosphere.}
+    \worktask{Analyzed the relationship between solar flare intensity and
+      Earth-Sun-Moon angle, as well as solar flare intensity and solar
+      zenith angle.}
+    \worktask{Created a map of the electron density in the Venus upper
+      ionosphere using Pioneer Venus Orbiter (PVO) Ion Mass Spectrometer
+      (OIMS) data.}
+    \worktask{Compared the OIMS data to the Orbiter Electron Temperature Probe
+      and Orbiter Retarding Potential Analyzer (ORPA) ionospheric data.}
+    \worktask{Determined the potential invalidity of the PVO data set due to its
+      skewed results when compared to VIRI and VEX.}
+
+  \end{ResumeSection}
+
+  % Projects
   \begin{ResumeSection}{Projects}
-    \SectionItemB{Elysia}
-    \SectionItemI{Login Manager}
-    \SectionItem{A GTK+ based login manager written entirely in C that is
+    \projectname{Elysia}
+    \projecttype{Login Manager}
+    \projectdesc{A GTK+ based login manager written entirely in C that is
       designed to be customizable to the user's preference and have completely
-      open source code.
-    }
-    \SectionEnd
+      open source code.}
 
-    \SectionItemB{Atlas}
-    \SectionItemI{Status Bar}
-    \SectionItem{A gtkmm based C++ status bar designed to be a replacement for
+    \subsectionvspace
+
+    \projectname{Atlas}
+    \projecttype{Status Bar}
+    \projectdesc{A gtkmm based C++ status bar designed to be a replacement for
       the dwm text status bar. It is an improvement to the default dwm status
       bar in that it allows for both text and images to be displayed anywhere on
       the status bar, and additionally allows for the status bar itself to be
-      placed in any orientation and location on the X server.
-    }
-    \SectionEnd
+      placed in any orientation and location on the X server.}
 
-    \SectionItemB{Aria}
-    \SectionItemI{Notification Bubble}
-    \SectionItem{A gtkmm based C++ notification bubble that is designed to be
+    \subsectionvspace
+
+    \projectname{Aria}
+    \projecttype{Notification Bubble}
+    \projectdesc{A gtkmm based C++ notification bubble that is designed to be
       highly configurable, with the user able to customize the location it is
-      displayed, font, text size, background color, foreground color, and more.
-    }
+      displayed, font, text size, background color, foreground color, and more.}
   \end{ResumeSection}
 
 \end{document}
