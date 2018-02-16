@@ -12,6 +12,7 @@
 \RequirePackage{array}
 \RequirePackage{microtype}
 \RequirePackage{xparse}
+\RequirePackage{ragged2e}
 
 % Header/footer margins 
 \topmargin=-1in
@@ -105,8 +106,5 @@
 
 \newcommand{\university}[2]{\blocktitle{#1}{#2}}
 \newcommand{\degree}[2]{\quicklist{#1}{#2}}
-\newcommand{\workposition}[2]{\blocksubtitle{#1}{#2}\vspace{-0.6em}}
-\newcommand{\worktask}[1]{\minipage[t]{0.97\linewidth} \itemize \item #1 \enditemize \endminipage \\}
-\newcommand{\projectname}[1]{\blocktitle{#1}}
-\newcommand{\projecttype}[1]{\blocksubtitle{#1}}
-\newcommand{\projectdesc}[1]{\blocktext{#1}}
+\newcommand{\position}[2]{\blocksubtitle{#1}{#2}\vspace{-0.6em}}
+\newcommand{\desc}[1]{\minipage[t]{0.97\linewidth} \itemize \justifying\item #1 \enditemize \endminipage \\}
