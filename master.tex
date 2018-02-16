@@ -21,30 +21,30 @@
 
   % ----------------------------------------------------------------------------
   % Objective
-  \begin{ResumeSection}{Objective}
-    \sectiontext{I am seeking a software engineering position where I can make a
+  \begin{resumesection}{Objective}
+    \blocktext{I am seeking a software engineering position where I can make a
       positive contribution to the technology industry by applying my knowledge of
       programming, mathematics, and astrophysics.}
-  \end{ResumeSection}
+  \end{resumesection}
 
   % ----------------------------------------------------------------------------
   % Computer Skills
-  \begin{ResumeSection}{Computer \\ Skills}
+  \begin{resumesection}{Computer \\ Skills}
     \explist{Languages}{C, C++, Java, Python, Bash, IDL, LaTeX, Assembly}
     \explist{Software}{Git, SVN, GNU Debugger (GDB), Valgrind}
     \explist{Operating systems}{Linux, Windows, OS X}
-  \end{ResumeSection}
+  \end{resumesection}
 
   % ----------------------------------------------------------------------------
   % Education
-  \begin{ResumeSection}{Education}
+  \begin{resumesection}{Education}
     \university{Boston University}{May 2015}
     \degree{Bachelor of Arts}{Astronomy and Physics}
-  \end{ResumeSection}
+  \end{resumesection}
 
   % ----------------------------------------------------------------------------
   % Experience
-  \begin{ResumeSection}{Work \\ Experience}
+  \begin{resumesection}{Work \\ Experience}
 
     % NASA
     \workplace{NASA Goddard Space Flight Center}{Greenbelt, MD}
@@ -53,8 +53,7 @@
     \worktask{Designed, implemented, and tested an API to enable
       hardware-in-the-loop testing for future CubeSat missions, by integrating
       an attitude and orbit simulation program with flight software.}
-
-    \subsectionvspace
+    \endworkplace
 
     % EbbRT
     \workplace{Boston University Computer Science Department}{Boston, MA}
@@ -65,8 +64,7 @@
     \worktask{Completed the EbbRT clock initialization algorithm which chooses
       the correct clock (PIT or paravirtualized clock) to initialize,
       depending on the device's hardware.}
-
-    \subsectionvspace
+    \endworkplace
 
     % ANDESITE
     \workplace{Boston University Satellite for Applications and Training}{Boston, MA}
@@ -77,8 +75,7 @@
     \worktask{Developed the communications algorithm between the main ANDESITE
       nanosatellite and eight picosatellites.}
     \worktask{Implemented the sensory data collection algorithm for eight picosatellites.}
-
-    \subsectionvspace
+    \endworkplace
 
     % VeSpR Post Flight Calibration
     \workplace{Boston University Center for Space Physics}{Boston, MA}
@@ -91,8 +88,7 @@
       Venus and Altair.}
     \worktask{Created a model for the payload quantum efficiency, reflectivity,
       and prism efficiency.}
-
-    \subsectionvspace
+    \endworkplace
 
     % MAVEN
     \workplace{Boston University Center for Space Physics}{Boston, MA}
@@ -101,19 +97,9 @@
     \worktask{Developed an algorithm to automatically remove scattered
       background light in images taken by the Imaging Ultraviolet Spectrograph
       (IUVS) on the Mars Atmosphere and Volatile Evolution (MAVEN) space probe.}
+    \endworkplace
 
-    \subsectionvspace
-
-    % Vacuum Chamber Lab (Room 507)
-    \workplace{Boston University Center for Space Physics}{Boston, MA}
-    \workposition{Lab Assistant}{June 2014 -- August 2014}
-
-    \worktask{Developed software for a microcontroller that controls the inner
-      housing inside a vacuum chamber.}
-
-    \subsectionvspace
-
-  \end{ResumeSection}
+  \end{resumesection}
 
   % ----------------------------------------------------------------------------
   % Next page -- add resume header on the new page
@@ -122,7 +108,15 @@
 
   % ----------------------------------------------------------------------------
   % Experience (cont.)
-  \begin{ResumeSection}{Work \\ Experience}
+  \begin{resumesection}{Work \\ Experience}
+
+    % Vacuum Chamber Lab (Room 507)
+    \workplace{Boston University Center for Space Physics}{Boston, MA}
+    \workposition{Lab Assistant}{June 2014 -- August 2014}
+
+    \worktask{Developed software for a microcontroller that controls the inner
+      housing inside a vacuum chamber.}
+    \endworkplace
 
     % Vacuum Chamber Lab (Room 507) cont.
     \workplace{Boston University Center for Space Physics}{Boston, MA}
@@ -131,8 +125,7 @@
     \worktask{Created a CAD model of a vacuum chamber's switchboard.}
     \worktask{Tested the operating state of a damaged vacuum chamber.}
     \worktask{Replaced defective vacuum chamber equipment.}
-
-    \subsectionvspace
+    \endworkplace
 
     % MGS and PVO
     \workplace{Boston University Center for Space Physics}{Boston, MA}
@@ -155,33 +148,33 @@
     \worktask{Determined the potential invalidity of the PVO data set due to its
       skewed results when compared to VIRI and VEX.}
 
-  \end{ResumeSection}
+  \end{resumesection}
 
+  % ----------------------------------------------------------------------------
   % Projects
-  \begin{ResumeSection}{Projects}
-    \projectname{Elysia}
-    \projecttype{Login Manager}
+  \begin{resumesection}{Projects}
+
+    % Login manager
+    \project{Elysia}{Login Manager}
     \projectdesc{A GTK+ based login manager written entirely in C that is
       designed to be customizable to the user's preference and have completely
       open source code.}
+    \endproject
 
-    \subsectionvspace
-
-    \projectname{Atlas}
-    \projecttype{Status Bar}
+    % Status bar
+    \project{Atlas}{Status Bar}
     \projectdesc{A gtkmm based C++ status bar designed to be a replacement for
       the dwm text status bar. It is an improvement to the default dwm status
       bar in that it allows for both text and images to be displayed anywhere on
       the status bar, and additionally allows for the status bar itself to be
       placed in any orientation and location on the X server.}
+    \endproject
 
-    \subsectionvspace
-
-    \projectname{Aria}
-    \projecttype{Notification Bubble}
+    % Notification bubble
+    \project{Aria}{Notification Bubble}
     \projectdesc{A gtkmm based C++ notification bubble that is designed to be
       highly configurable, with the user able to customize the location it is
       displayed, font, text size, background color, foreground color, and more.}
-  \end{ResumeSection}
+  \end{resumesection}
 
 \end{document}

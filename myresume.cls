@@ -1,7 +1,6 @@
+% 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{myresume}
-
-% Set document class
 \LoadClass[10pt]{article}
 
 % Include packages
@@ -22,6 +21,8 @@
 \marginparwidth=0pt
 \marginparpush=0pt
 
+\renewcommand{\baselinestretch}{1.125}
+
 % Itemize environment spacing
 \setlist{leftmargin=1em}
 \setlist[itemize,1]{label=--}
@@ -36,13 +37,14 @@
 \providecommand{\Linkedin}{}
 \providecommand{\Website}{}
 
+% ------------------------------------------------------------------------------
 % Header
 \newcommand{\ResumeHeader}{
   \begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
     \textbf{\Large \Name} & \textbf{\href{mailto:\Email}{\Email}} \\
-    \Address              & \textbf{Website:} \href{http://\Website}{\Website} \\
-    \City                 & \textbf{Github:}  \href{http://\Github}{\Github} \\
-    \Phone                & \textbf{LinkedIn:} \href{http://\Linkedin}{\Linkedin} \\
+    \Address          & \textbf{Website:} \href{http://\Website}{\Website} \\
+    \City             & \textbf{Github:}  \href{http://\Github}{\Github} \\
+    \Phone            & \textbf{LinkedIn:} \href{http://\Linkedin}{\Linkedin} \\
   \end{tabular*}
 
   \vspace{0.5em}
@@ -60,61 +62,51 @@
   \vspace{1em}
 }
 
+% ------------------------------------------------------------------------------
 % Environments
-\newenvironment{ResumeSection}[1]{
-  \begin{tabular}{ p{0.1\textwidth} p{0.8\textwidth} }
-    \SectionTitle{\SectionTitleStack{#1}}
+\newenvironment{resumesection}[1]{
+  \tabular{ p{0.1\textwidth} p{0.8\textwidth} }
+    \sectiontitle{#1} & \tabular[t]{p{0.75\textwidth}}
 }{
-  \SectionEnd
-  \end{tabular}
+    \endtabular \\
+    \vspace{1em} \\
+  \endtabular
 }
 
-\newenvironment{WorkItemize}{
-  \begin{minipage}[t]{0.97\linewidth}
-    \begin{itemize}[parsep=0.125em]
+\newenvironment{workplace}[2]{
+  \blocktitle{#1}{#2}
 }{
-    \end{itemize}
-  \end{minipage}
+  \vspace{1em} \\
 }
 
-\DeclareDocumentCommand\sectiontitle{ m g }{
-  & \textbf{#1} \IfNoValueF{#2}{\hfill \textbf{#2}} \\
+\newenvironment{project}[2]{
+  \blocktitle{#1}
+  \blocksubtitle{#2}
+}{
+  \vspace{1em} \\
 }
 
-\DeclareDocumentCommand\sectionsubtitle{ m g }{
-  & \textsl{#1} \IfNoValueF{#2}{\hfill \textsl{#2}} \\
+% ------------------------------------------------------------------------------
+% Commands
+\DeclareDocumentCommand\blocktitle{ m g }{
+  \textbf{#1} \IfNoValueF{#2}{\hfill \textbf{#2}} \\
 }
 
-\newcommand{\sectiontext}[1]{ & #1 \\}
-\newcommand{\explist}[2]{     & \textbf{#1:} #2 \\}
-\newcommand{\quicklist}[2]{   & \textsl{#1: #2} \\}
+\DeclareDocumentCommand\blocksubtitle{ m g }{
+  \textsl{#1} \IfNoValueF{#2}{\hfill \textsl{#2}} \\
+}
 
-\newcommand{\university}[2]{\sectiontitle{#1}{#2}}
+\newcommand{\sectiontitle}[1]{
+  \textsc{\small\smash[b]{\tabular[t]{@{}c@{}}#1\endtabular}}
+}
+\newcommand{\blocktext}[1]{#1 \\}
+\newcommand{\explist}[2]{\textbf{#1:} #2 \\}
+\newcommand{\quicklist}[2]{\textsl{#1: #2} \\}
+
+\newcommand{\university}[2]{\blocktitle{#1}{#2}}
 \newcommand{\degree}[2]{\quicklist{#1}{#2}}
-\newcommand{\workplace}[2]{\sectiontitle{#1}{#2}}
-\newcommand{\workposition}[2]{\sectionsubtitle{#1}{#2}}
-\newcommand{\worktask}[1]{ & \begin{WorkItemize} \item #1 \end{WorkItemize} \\}
-\newcommand{\projectname}[1]{\sectiontitle{#1}}
-\newcommand{\projecttype}[1]{\sectionsubtitle{#1}}
-\newcommand{\projectdesc}[1]{\sectiontext{#1}}
-
-\newcommand{\subsectionvspace}{\vspace{1em} \\}
-
-
-% Resume section styling
-\newcommand{\FontSize}{10pt}
-\newcommand{\SectionTitleStack}[1]{\smash[b]{\begin{tabular}[t]{@{}c@{}}#1\end{tabular}}}
-\newcommand{\SectionTitle}[1]{\textsc{\small #1}}
-\newcommand{\SectionItem}[1]{   &         #1              \vspace{0.25em} \\}
-\newcommand{\SectionItemB}[1]{  & \textbf{#1}             \vspace{0.25em} \\}
-\newcommand{\SectionItemI}[1]{  & \textsl{#1}             \vspace{0.25em} \\}
-\newcommand{\SectionItemBR}[2]{ & \textbf{#1}         #2  \vspace{0.25em} \\}
-\newcommand{\SectionItemBI}[2]{ & \textbf{#1} \textsl{#2} \vspace{0.25em} \\}
-\newcommand{\SectionEnd}{\vspace{1em} \\}
-
-% Resume employment styling
-\newcommand{\WorkEmployer}[1]{ & \textbf{#1} \hfill}
-\newcommand{\WorkLocation}[1]{   \textbf{#1} \vspace{0.25em} \\}
-\newcommand{\WorkPosition}[1]{ & \textsl{#1} \hfill}
-\newcommand{\WorkDate}[1]{       \textsl{#1} \vspace{0.5em} \\}
-\newcommand{\WorkItem}[1]{& \begin{WorkItemize} \item #1 \end{WorkItemize} \\}
+\newcommand{\workposition}[2]{\blocksubtitle{#1}{#2}\vspace{-0.6em}}
+\newcommand{\worktask}[1]{\minipage[t]{0.97\linewidth} \itemize \item #1 \enditemize \endminipage \\}
+\newcommand{\projectname}[1]{\blocktitle{#1}}
+\newcommand{\projecttype}[1]{\blocksubtitle{#1}}
+\newcommand{\projectdesc}[1]{\blocktext{#1}}
