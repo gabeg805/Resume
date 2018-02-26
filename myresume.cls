@@ -80,6 +80,12 @@
   \vspace{1em} \\
 }
 
+\newenvironment{award}[1]{
+  \blocktitle{#1}
+}{
+  \vspace{1em} \\
+}
+
 \newenvironment{project}[2]{
   \blocktitle{#1}
   \blocksubtitle{#2}
@@ -104,6 +110,7 @@
 \newcommand{\explist}[2]{\textbf{#1:} #2 \\}
 \newcommand{\quicklist}[2]{\textsl{#1: #2} \\}
 
+\newcommand{\achieve}[1]{\blocksubtitle{#1}}
 \newcommand{\university}[2]{\blocktitle{#1}{#2}}
 \newcommand{\degree}[2]{\quicklist{#1}{#2}}
 \newcommand{\position}[2]{\blocksubtitle{#1}{#2}\vspace{-0.6em}}
